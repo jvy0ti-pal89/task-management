@@ -5,8 +5,12 @@
   },
   "deploy": {
     "numReplicas": 1,
-    "startCommand": "npm run dev",
+    "startCommand": "npm run build && node dist/index.js",
     "restartPolicyMaxRetries": 5,
-    "port": 4000
+    "healthchecks": {
+      "enabled": true,
+      "cpu": 50,
+      "memory": 50
+    }
   }
 }
